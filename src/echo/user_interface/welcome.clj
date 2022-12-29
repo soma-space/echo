@@ -5,14 +5,13 @@
             [clojure.string :as str]
             [seesaw.mig :as mig]
             [echo.user-interface.core :refer [frame]
-                                      :rename {frame main-frame}]))
+             :rename {frame main-frame}])
+  (:import (java.awt Insets)))
 
 
 (defn image
   [label]
-  (-> label
-      (core/config! :icon "test3.png")
-      (core/config! :border (border/line-border :bottom 1 :top 1 :color "#DDD"))))
+  (core/config! label :icon "test3.png"))
 
 
 (defn welcome-title
@@ -20,25 +19,26 @@
   (core/text :text "Myth of Soma Server Installer"
              :font (font/font :size 22 :style :bold)
              :background :white
-             :border (border/empty-border :left 10 :right 10)
+             :border (border/empty-border :left 20 :right 20)
              :editable? false))
 
 
 (defn welcome-text
   []
   (str/join "\n"
-            ["This program will actively try and download and install"
+            ["This program will try to download and install"
              "a Myth of Soma game server to your computer."
              ""
-             "In doing so it may cause misconfiguration"
+             "In doing so it may cause misconfiguration."
              ""
-             "You operate this program at your own risk"]))
+             "You operate this program at your own risk."]))
 
 
 (defn button-panel
   []
   (core/flow-panel :align :trailing
-                   :items [(core/button :text "Next" :mnemonic \N)]))
+                   :border (border/empty-border :top 10 :left 10 :right 10 :bottom 10)
+                   :items [(core/button :text "Next" :font (font/font :size 16) :mnemonic \N :margin (Insets. 6 20 6 20))]))
 
 
 (defn welcome-content
@@ -48,15 +48,15 @@
              :editable? false
              :multi-line? true
              :background :white
-             :border (border/empty-border :left 10 :right 10 :top 10)))
+             :border (border/empty-border :left 20 :right 20)))
 
 
 (defn page
   []
   (mig/mig-panel
+    :constraints ["gap 0, insets 0"]
     :items [[(image (core/label))]
             [(core/vertical-panel
-               :border (border/line-border :bottom 1 :top 1 :color "#DDD")
                :items [(welcome-title)
                        (welcome-content)]) "wrap, align left, top, grow"]
             [(button-panel) "align right, bottom, span 2, grow"]]))

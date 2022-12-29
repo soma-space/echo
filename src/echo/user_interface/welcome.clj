@@ -27,9 +27,8 @@
 (defn welcome-text
   []
   (str/join "\n"
-            ["This program will actively try and download"
-             "and install a Myth of Soma game server"
-             "to your computer."
+            ["This program will actively try and download and install"
+             "a Myth of Soma game server to your computer."
              ""
              "In doing so it may cause misconfiguration"
              ""

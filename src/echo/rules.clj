@@ -8,5 +8,3 @@
   =>
   (insert! {:fact-type :memory-64bit}))
 
-
-

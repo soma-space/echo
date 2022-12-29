@@ -6,7 +6,8 @@
             [clara.rules :refer [fire-rules mk-session]]))
 
 
-(defn -main [& _]
+(defn -main
+  [& _]
   (setup)
   (frame))
 

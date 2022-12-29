@@ -14,6 +14,16 @@
       (core/config! :icon "test3.png")
       (core/config! :border (border/line-border :bottom 1 :top 1 :color "#DDD"))))
 
+
+(defn welcome-title
+  []
+  (core/text :text "Myth of Soma Server Installer"
+             :font (font/font :size 22 :style :bold)
+             :background :white
+             :border (border/empty-border :left 10 :right 10)
+             :editable? false))
+
+
 (defn welcome-text
   []
   (str/join "\n"
@@ -25,23 +35,11 @@
              ""
              "You operate this program at your own risk"]))
 
-(defn welcome-font
-  []
-  (font/font :size 22
-             :style :bold))
 
 (defn button-panel
   []
   (core/flow-panel :align :trailing
                    :items [(core/button :text "Next" :mnemonic \N)]))
-
-(defn welcome-title
-  []
-  (core/text :text "Myth of Soma Server Installer"
-             :font (welcome-font)
-             :background :white
-             :border (border/empty-border :left 10 :right 10)
-             :editable? false))
 
 
 (defn welcome-content
@@ -51,16 +49,12 @@
              :editable? false
              :multi-line? true
              :background :white
-             :border (border/empty-border
-                       :left 10
-                       :right 10
-                       :top 10)))
+             :border (border/empty-border :left 10 :right 10 :top 10)))
 
 
 (defn page
   []
   (mig/mig-panel
-    :constraints [""]
     :items [[(image (core/label))]
             [(core/vertical-panel
                :border (border/line-border :bottom 1 :top 1 :color "#DDD")
@@ -68,8 +62,7 @@
                        (welcome-content)]) "wrap, align left, top, grow"]
             [(button-panel) "align right, bottom, span 2, grow"]]))
 
+
 (defn frame
   []
-  (core/pack!
-    (core/config! (main-frame)
-                  :content (page))))
+  (core/pack! (core/config! (main-frame) :content (page))))

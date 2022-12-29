@@ -1,13 +1,14 @@
-(ns echo.main
+(ns echo.core
   (:require [echo.rules]
-            [echo.user-interface :refer [setup main-frame]]
+            [echo.user-interface.core :refer [setup]]
+            [echo.user-interface.welcome :refer [frame]]
             [clara.tools.inspect :as inspect]
             [clara.rules :refer [fire-rules mk-session]]))
 
 
 (defn -main [& _]
   (setup)
-  (main-frame))
+  (frame))
 
 
 (comment
@@ -17,3 +18,7 @@
       (inspect/inspect)
       :fact->explanations
       keys))
+
+(comment
+  (do (setup)
+      (frame)))

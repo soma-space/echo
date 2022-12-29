@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="Deps: me.raynes/conch:0.8.0">
-    <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/me/raynes/conch/0.8.0/conch-0.8.0.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

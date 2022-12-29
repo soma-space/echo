@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="ReplProjectCommandManager">
-    <repl-command name="reload" executionType="EXPRESSION" commandText="(frame)" executeBefore="LOAD_CURRENT" executionNs="EXPLICIT_NS" inNamespace="echo.user-interface" saveAll="true" />
-  </component>
-</project>

@@ -4,9 +4,8 @@
             [seesaw.border :as border]
             [clojure.string :as str]
             [seesaw.mig :as mig]
-            [echo.user-interface.core :refer [frame]
-             :rename {frame main-frame}])
-  (:import (java.awt Insets)))
+            [echo.user-interface.core :refer [frame next-button]
+             :rename {frame main-frame}]))
 
 
 (defn image
@@ -42,7 +41,7 @@
               :border (border/line-border :top 1 :color :white)
               :items [(core/flow-panel :align :trailing
                                        :border (border/empty-border :top 5 :left 5 :right 5 :bottom 5)
-                                       :items [(core/button :text "Next >" :font (font/font :size 16) :mnemonic \N :margin (Insets. 6 20 6 20))])])]))
+                                       :items [(next-button)])])]))
 
 
 (defn welcome-content

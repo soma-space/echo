@@ -1,5 +1,8 @@
 (ns echo.user-interface.core
-  (:require [seesaw.core :as core]))
+  (:require [seesaw.core :as core]
+            [seesaw.font :as font]
+            [echo.domain :refer [next-action]])
+  (:import (java.awt Insets)))
 
 
 (defn setup
@@ -21,5 +24,14 @@
                           :on-close :exit))))
 
 
-(comment
-  (reset! frame! nil))
+(comment (reset! frame! nil))
+
+
+(defn next-button
+  []
+  (let [button (core/button :text "Next >"
+                            :font (font/font :size 16)
+                            :mnemonic \N
+                            :margin (Insets. 6 20 6 20))]
+    (core/listen button :action next-action)
+    button))

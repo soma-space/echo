@@ -36,9 +36,13 @@
 
 (defn button-panel
   []
-  (core/flow-panel :align :trailing
-                   :border (border/empty-border :top 10 :left 10 :right 10 :bottom 10)
-                   :items [(core/button :text "Next" :font (font/font :size 16) :mnemonic \N :margin (Insets. 6 20 6 20))]))
+  (core/horizontal-panel
+    :border (border/line-border :top 1 :color "#CCC")
+    :items [(core/horizontal-panel
+              :border (border/line-border :top 1 :color :white)
+              :items [(core/flow-panel :align :trailing
+                                       :border (border/empty-border :top 5 :left 5 :right 5 :bottom 5)
+                                       :items [(core/button :text "Next >" :font (font/font :size 16) :mnemonic \N :margin (Insets. 6 20 6 20))])])]))
 
 
 (defn welcome-content

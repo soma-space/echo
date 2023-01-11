@@ -1,8 +1,6 @@
 (ns echo.domain
   (:require [clojure.string :as string]
-            [clara.tools.inspect :as inspect]
-            [clara.rules :refer [fire-rules mk-session]]
-            [me.raynes.conch :as sh]))
+            [seesaw.core :as core]))
 
 
 (defn memory-64bit?

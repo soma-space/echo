@@ -1,7 +1,7 @@
 (ns echo.user-interface.core
   (:require [seesaw.core :as core]
             [seesaw.font :as font]
-            [echo.domain :refer [next-action]])
+            [echo.user-interface.actions :refer [next-action]])
   (:import (java.awt Insets)))
 
 

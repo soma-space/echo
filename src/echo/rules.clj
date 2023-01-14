@@ -13,3 +13,9 @@
   [:test (domain/mssql-exists?)]
   =>
   (insert! {:fact-type :mssql-exists}))
+
+
+(defrule configuration
+  []
+  =>
+  (insert! {:fact-type :configuration}))

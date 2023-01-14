@@ -1,5 +1,6 @@
 {:paths ["src" "resources"]
- :deps {seesaw/seesaw {:mvn/version "1.5.0"}
-        com.cerner/clara-rules {:mvn/version "0.21.1"}
-        me.raynes/conch {:mvn/version "0.8.0"}}}
+ :deps  {seesaw/seesaw           {:mvn/version "1.5.0"}
+         com.cerner/clara-rules  {:mvn/version "0.21.2"}
+         clojure-ini/clojure-ini {:mvn/version "0.0.2"}
+         me.raynes/conch         {:mvn/version "0.8.0"}}}
 

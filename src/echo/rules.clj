@@ -9,7 +9,7 @@
   (insert! {:fact-type :memory-64bit}))
 
 
-(defrule mssql-exists?
+(defrule mssql-exists
   [:test (domain/mssql-exists?)]
   =>
-  (insert! {:fact-type :mssql-exists?}))
+  (insert! {:fact-type :mssql-exists}))

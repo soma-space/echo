@@ -8,4 +8,4 @@
   [?config <- :configuration]
   [:test (domain/oneperone-running?)]
   =>
-  (insert! {:fact-type :oneperone-running}))
+  (insert! {:fact :oneperone-running}))

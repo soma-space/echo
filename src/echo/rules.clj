@@ -6,14 +6,14 @@
             [echo.rules.mssql]))
 
 
-(def facts [(into (get-config) {:fact-type :configuration})])
+(def facts [(into (get-config) {:fact :configuration})])
 
 (defn fire
   []
   (-> (mk-session
                   'echo.rules.oneperone
                   'echo.rules.mssql
-                  :fact-type-fn :fact-type)
+                  :fact-type-fn :fact)
       (insert-all facts)
       (fire-rules)
       (inspect/inspect)

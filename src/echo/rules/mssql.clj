@@ -7,4 +7,4 @@
   [?config <- :configuration]
   [:test (domain/mssql-exists? (-> ?config :mssql :registry-key))]
   =>
-  (insert! {:fact-type :mssql-exists}))
+  (insert! {:fact :mssql-exists}))

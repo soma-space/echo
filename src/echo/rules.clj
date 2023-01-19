@@ -11,7 +11,7 @@
 
 (defrule mssql-exists
   [?config <- :configuration]
-  [:test (domain/mssql-exists? (get-in ?config [:mssql :registry-key]))]
+  [:test (domain/mssql-exists? (-> ?config :mssql :registry-key))]
   =>
   (insert! {:fact-type :mssql-exists}))
 

@@ -20,8 +20,8 @@
               (core/frame :title "Myth of Soma Server Installer"
                           :icon "symbol3.png"
                           :resizable? false
-                          :visible? true
-                          :on-close :exit))))
+                          :visible? true))))
+                          ;:on-close :exit))))
 
 
 (comment (reset! frame! nil))

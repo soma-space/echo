@@ -1,7 +1,7 @@
 (ns echo.domain
   (:require [clojure.string :as string]
-            [echo.cli :as cli]))
-
+            [echo.cli :as cli]
+            [clojure-ini.core :refer [read-ini]]))
 
 
 (defn memory-64bit?
@@ -10,8 +10,8 @@
 
 
 (defn mssql-exists?
-  []
-  (not= "" (cli/reg ["QUERY" "'HKLM\\SOFTWARE\\MICROSOFT\\Microsoft SQL Server'"])))
+  [registry-key]
+  (not= "" (cli/reg ["QUERY" (str "'" registry-key "'")])))
 
 
 (defn mssql-instance-connectable?
@@ -19,6 +19,11 @@
   (not= "" (cli/sqlcmd ["-S" (str "localhost" \\ name) "-Q" "'SELECT @@VERSION'"])))
 
 
+(defn load-config
+  []
+  (read-ini "resources/config.ini" {:keywordize? true}))
+
 
 (comment
-  (mssql-exists?))
+  (load-config))
+

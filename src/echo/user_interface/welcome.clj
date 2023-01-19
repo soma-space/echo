@@ -65,6 +65,6 @@
             [(button-panel) "align right, bottom, span 2, grow"]]))
 
 
-(defn display-frame
+(defn welcome-frame
   []
   (core/pack! (core/config! (frame) :content (page))))

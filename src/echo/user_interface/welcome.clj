@@ -4,8 +4,8 @@
             [seesaw.border :as border]
             [clojure.string :as str]
             [seesaw.mig :as mig]
-            [echo.user-interface :refer [frame next-button]
-             :rename {frame main-frame}]))
+            [echo.user-interface.buttons :refer [next-button]]
+            [echo.user-interface :refer [frame]]))
 
 
 (defn image
@@ -65,6 +65,6 @@
             [(button-panel) "align right, bottom, span 2, grow"]]))
 
 
-(defn frame
+(defn display-frame
   []
-  (core/pack! (core/config! (main-frame) :content (page))))
+  (core/pack! (core/config! (frame) :content (page))))

@@ -1,13 +1,13 @@
 (ns echo.core
   (:require [echo.rules :refer [fire]]
             [echo.user-interface :refer [setup]]
-            [echo.user-interface.welcome :refer [frame]]))
+            [echo.user-interface.welcome :refer [display-frame]]))
 
 
 (defn -main
   [& _]
   (setup)
-  (frame))
+  (display-frame))
 
 
 (comment
@@ -15,4 +15,4 @@
 
 (comment
   (do (setup)
-      (frame)))
+      (display-frame)))

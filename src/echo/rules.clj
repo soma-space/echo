@@ -1,12 +1,12 @@
 (ns echo.rules
   (:require [clara.rules :refer [fire-rules insert-all mk-session]]
             [clara.tools.inspect :as inspect]
-            [echo.domain :as domain]
+            [echo.config :refer [get-config]]
             [echo.rules.applications]
             [echo.rules.mssql]))
 
 
-(def facts [(into (domain/load-config) {:fact-type :configuration})])
+(def facts [(into (get-config) {:fact-type :configuration})])
 
 (defn fire
   []

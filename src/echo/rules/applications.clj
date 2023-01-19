@@ -1,9 +1,10 @@
 (ns echo.rules.applications
   (:require [clara.rules :refer [defrule insert!]]
-            [echo.domain :as domain]))
+            [echo.domain.applications :as domain]))
 
 
 (defrule oneperone-running
+  [:mssql-exists]
   [?config <- :configuration]
   [:test (domain/oneperone-running?)]
   =>

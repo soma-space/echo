@@ -10,7 +10,7 @@
 
 (defn image
   [label]
-  (core/config! label :icon "test3.png"))
+  (core/config! label :icon "test.png"))
 
 
 (defn welcome-title

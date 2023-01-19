@@ -1,6 +1,6 @@
 (ns echo.rules.mssql
   (:require [clara.rules :refer [defrule insert!]]
-            [echo.domain :as domain]))
+            [echo.domain.mssql :as domain]))
 
 
 (defrule mssql-exists

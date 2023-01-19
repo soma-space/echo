@@ -8,7 +8,7 @@
    (run-command
      "powershell"
      args
-     (into {:throw false :timeout 5000}
+     (into {:timeout 5000 :verbose true :throw false}
            options))))
 
 

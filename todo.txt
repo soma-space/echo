@@ -1,0 +1,1 @@
+- Add a function that will println :stderr and return :stdout on (zero? @(:exit-code)) else false

@@ -4,7 +4,7 @@
             [seesaw.border :as border]
             [clojure.string :as str]
             [seesaw.mig :as mig]
-            [echo.user-interface.core :refer [frame next-button]
+            [echo.user-interface :refer [frame next-button]
              :rename {frame main-frame}]))
 
 

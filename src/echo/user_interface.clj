@@ -1,4 +1,4 @@
-(ns echo.user-interface.core
+(ns echo.user-interface
   (:require [seesaw.core :as core]
             [seesaw.font :as font]
             [echo.user-interface.actions :refer [next-action]])

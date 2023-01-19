@@ -8,8 +8,8 @@
    (run-command
      "powershell"
      args
-     (merge {:throw false :timeout 5000}
-            options))))
+     (into {:throw false :timeout 5000}
+           options))))
 
 
 (defn reg
@@ -25,5 +25,11 @@
   [args]
   (powershell (into ["sqlcmd"] args)))
 
+
 (comment
   (sqlcmd ["-S" "localhost\\sqlexpress" "-Q" "'SELECT @@VERSION'"]))
+
+
+(defn tasklist
+  [args]
+  (powershell (into ["tasklist"] args)))

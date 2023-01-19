@@ -1,25 +1,19 @@
 (ns echo.rules
-  (:require [clara.rules :refer [defrule insert! mk-session insert-all fire-rules]]
+  (:require [clara.rules :refer [fire-rules insert-all mk-session]]
             [clara.tools.inspect :as inspect]
-            [echo.domain :as domain]))
+            [echo.domain :as domain]
+            [echo.rules.applications]
+            [echo.rules.mssql]))
 
-;(defrule memory-64bit
-;  [:test (domain/memory-64bit?)]
-;  =>
-;  (insert! {:fact-type :memory-64bit}))
-
-
-(defrule mssql-exists
-  [?config <- :configuration]
-  [:test (domain/mssql-exists? (-> ?config :mssql :registry-key))]
-  =>
-  (insert! {:fact-type :mssql-exists}))
 
 (def facts [(into (domain/load-config) {:fact-type :configuration})])
 
 (defn fire
   []
-  (-> (mk-session 'echo.rules :fact-type-fn :fact-type)
+  (-> (mk-session
+                  'echo.rules.applications
+                  'echo.rules.mssql
+                  :fact-type-fn :fact-type)
       (insert-all facts)
       (fire-rules)
       (inspect/inspect)

@@ -18,6 +18,10 @@
   [name]
   (not= "" (cli/sqlcmd ["-S" (str "localhost" \\ name) "-Q" "'SELECT @@VERSION'"])))
 
+(defn oneperone-running?
+  []
+  ; tasklist /FI "IMAGENAME eq oneperone.exe"
+  true)
 
 (defn load-config
   []

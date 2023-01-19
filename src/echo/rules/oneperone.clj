@@ -1,6 +1,6 @@
-(ns echo.rules.applications
+(ns echo.rules.oneperone
   (:require [clara.rules :refer [defrule insert!]]
-            [echo.domain.applications :as domain]))
+            [echo.domain.oneperone :as domain]))
 
 
 (defrule oneperone-running

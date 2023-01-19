@@ -1,4 +1,4 @@
-(ns echo.domain.applications)
+(ns echo.domain.oneperone)
 
 
 (defn oneperone-running?

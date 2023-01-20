@@ -6,6 +6,6 @@
 (defrule oneperone-running
   [:mssql-exists]
   [?config <- :configuration]
-  [:test (domain/oneperone-running?)]
+  [:test (domain/oneperone-running? (-> ?config :oneperone :exe))]
   =>
   (insert! {:fact :oneperone-running}))

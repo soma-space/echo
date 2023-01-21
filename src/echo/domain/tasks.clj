@@ -1,4 +1,4 @@
-(ns echo.domain.oneperone
+(ns echo.domain.tasks
   (:require [echo.cli :refer [powershell]]
             [clojure.string :as str]))
 

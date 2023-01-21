@@ -1,7 +1,7 @@
-(ns echo.user-interface.buttons
+(ns echo.interface.buttons
   (:require [seesaw.core :as core]
             [seesaw.font :as font]
-            [echo.user-interface.actions :refer [next-action]])
+            [echo.interface.actions :refer [next-action]])
   (:import (java.awt Insets)))
 
 

@@ -1,11 +1,11 @@
-(ns echo.user-interface.welcome
+(ns echo.interface.welcome
   (:require [seesaw.core :as core]
             [seesaw.font :as font]
             [seesaw.border :as border]
             [clojure.string :as str]
             [seesaw.mig :as mig]
-            [echo.user-interface.buttons :refer [next-button]]
-            [echo.user-interface :refer [frame]]))
+            [echo.interface.buttons :refer [next-button]]
+            [echo.interface :refer [frame]]))
 
 
 (defn image

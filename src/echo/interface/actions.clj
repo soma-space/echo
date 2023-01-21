@@ -1,4 +1,4 @@
-(ns echo.user-interface.actions
+(ns echo.interface.actions
   (:require [seesaw.core :as core]
             [echo.rules :refer [fire]]))
 

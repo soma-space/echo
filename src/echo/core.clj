@@ -1,7 +1,7 @@
 (ns echo.core
   (:require [echo.rules :refer [fire]]
-            [echo.user-interface :refer [setup]]
-            [echo.user-interface.welcome :refer [welcome-frame]]))
+            [echo.interface :refer [setup]]
+            [echo.interface.welcome :refer [welcome-frame]]))
 
 
 (defn -main

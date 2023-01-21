@@ -9,3 +9,9 @@
   [:test (tasks/exe-running? (-> ?config :oneperone :exe))]
   =>
   (insert! {:fact :oneperone-running}))
+
+
+(defrule oneperone-not-running
+  [:not [:oneperone-running]]
+  =>
+  (insert! {:fact :oneperone-not-running}))

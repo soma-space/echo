@@ -1,4 +1,4 @@
-(ns echo.user-interface
+(ns echo.interface
   (:require [seesaw.core :as core]))
 
 

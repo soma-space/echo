@@ -9,6 +9,7 @@
   (println content)
   (println "---"))
 
+
 (defn powershell
   ([args]
    (powershell args {}))
@@ -25,24 +26,6 @@
            nil)))))
 
 
-(defn reg
-  [args]
-  (powershell (into ["REG"] args)))
-
-
 (comment
-  (reg ["QUERY" "'HKLM\\SOFTWARE\\MICROSOFT\\Microsoft SQL Server'"]))
-
-
-(defn sqlcmd
-  [args]
-  (powershell (into ["sqlcmd"] args)))
-
-
-(comment
-  (sqlcmd ["-S" "localhost\\sqlexpress" "-Q" "'SELECT @@VERSION'"]))
-
-
-(defn tasklist
-  [args]
-  (powershell (into ["tasklist"] args)))
+  (powershell ["REG" "QUERY" "'HKLM\\SOFTWARE\\MICROSOFT\\Microsoft SQL Server'"])
+  (powershell ["sqlcmd" "-S" "localhost\\sqlexpress" "-Q" "'SELECT @@VERSION'"]))

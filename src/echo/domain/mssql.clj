@@ -1,12 +1,12 @@
 (ns echo.domain.mssql
-  (:require [echo.cli :as cli]))
+  (:require [echo.cli :refer [powershell]]))
 
 
 (defn mssql-exists?
   [registry-key]
-  (zero? @(:exit-code (cli/reg ["QUERY" (str "'" registry-key "'")]))))
+  (boolean (powershell ["REG" "QUERY" (str "'" registry-key "'")])))
 
 
 (defn mssql-instance-connectable?
   [name]
-  (cli/sqlcmd ["-S" (str "localhost" \\ name) "-Q" "'SELECT @@VERSION'"]))
+  (boolean (powershell ["sqlcmd" "-S" (str "localhost" \\ name) "-Q" "'SELECT @@VERSION'"])))

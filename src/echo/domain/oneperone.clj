@@ -1,14 +1,14 @@
 (ns echo.domain.oneperone
-  (:require [echo.cli :refer [tasklist]]
+  (:require [echo.cli :refer [powershell]]
             [clojure.string :as str]))
 
 
-(defn oneperone-running?
+(defn exe-running?
   [exe]
   (not (str/starts-with?
-         (tasklist ["/FI \"\"IMAGENAME eq " exe "\"\""])
+         (powershell ["tasklist" "/FI \"\"IMAGENAME eq " exe "\"\""])
          "INFO:")))
 
-(comment
-  (oneperone-running? "notepad.exe"))
 
+(comment
+  (exe-running? "notepad.exe"))

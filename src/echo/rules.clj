@@ -6,16 +6,29 @@
             [echo.rules.mssql]))
 
 
-(def facts [(into (get-config) {:fact :configuration})])
-
-(defn fire
+(defn config-fact
   []
-  (-> (mk-session
-                  'echo.rules.oneperone
+  (into (get-config) {:fact :configuration}))
+
+
+(defn session
+  [facts]
+  (-> (mk-session 'echo.rules.oneperone
                   'echo.rules.mssql
                   :fact-type-fn :fact)
       (insert-all facts)
-      (fire-rules)
+      (fire-rules)))
+
+
+(defn fire
+  []
+  (-> (session [(config-fact)])
       (inspect/inspect)
       :fact->explanations
       keys))
+
+
+(defn explain
+  []
+  (-> (session [(config-fact)])
+      (inspect/explain-activations)))

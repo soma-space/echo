@@ -2,6 +2,7 @@
   (:require [clara.rules :refer [fire-rules insert-all mk-session]]
             [clara.tools.inspect :as inspect]
             [echo.config :refer [get-config]]
+            [echo.queries]
             [echo.rules.oneperone]
             [echo.rules.mssql]))
 
@@ -15,6 +16,7 @@
   [facts]
   (-> (mk-session 'echo.rules.oneperone
                   'echo.rules.mssql
+                  'echo.queries
                   :fact-type-fn :fact)
       (insert-all facts)
       (fire-rules)))

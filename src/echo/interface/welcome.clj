@@ -5,7 +5,7 @@
             [clojure.string :as str]
             [seesaw.mig :as mig]
             [echo.interface.buttons :refer [next-button]]
-            [echo.interface :refer [frame]]))
+            [echo.interface :refer [main-frame]]))
 
 
 (defn image
@@ -67,4 +67,4 @@
 
 (defn welcome-frame
   []
-  (core/pack! (core/config! (frame) :content (page))))
+  (core/pack! (core/config! (main-frame) :content (page))))

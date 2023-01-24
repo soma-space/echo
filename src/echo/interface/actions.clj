@@ -5,4 +5,4 @@
 
 (defn next-action
   [e]
-  (core/alert e (rules/explain)))
+  (core/alert e (rules/fire)))

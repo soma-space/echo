@@ -12,13 +12,14 @@
 
 (defn frame
   []
-  (or @frame!
-      (reset! frame!
-              (core/frame :title "Myth of Soma Server Installer"
+  (let [frame (core/frame :title "Myth of Soma Server Installer"
                           :icon "symbol.png"
                           :resizable? false
-                          :visible? true))))
-                          ;:on-close :exit))))
+                          :visible? true
+                          :on-close :dispose)]
+    (core/listen frame :window-closed (fn [_] (reset! frame! nil)))
+    frame))
 
-
-(comment (reset! frame! nil))
+(defn main-frame
+  []
+  (or @frame! (frame)))

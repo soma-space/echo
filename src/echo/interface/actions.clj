@@ -1,13 +1,16 @@
 (ns echo.interface.actions
-  (:require [seesaw.core :as core]
-            [echo.rules :as rules]))
+  (:require [echo.rules :as rules]))
 
 
 (defn progress-forward
   []
-  (let [rules (rules/fire)]))
+  (let [rules (filter :display (rules/fire))]
+    (assert (= 1 (count rules)) "More than one display matches")
+    (for [{display :display} rules]
+      (display))))
 
 
 (defn next-action
-  [e]
-  (core/alert e (progress-forward)))
+  [_]
+  (doall
+    (progress-forward)))

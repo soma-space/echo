@@ -1,6 +1,7 @@
 (ns echo.rules.oneperone
   (:require [clara.rules :refer [defrule insert!]]
-            [echo.domain.tasks :as tasks]))
+            [echo.domain.tasks :as tasks]
+            [echo.interface.oneperone :refer [oneperone-page]]))
 
 
 (defrule oneperone-running
@@ -14,4 +15,5 @@
 (defrule oneperone-not-running
   [:not [:oneperone-running]]
   =>
-  (insert! {:fact :oneperone-not-running}))
+  (insert! {:fact :oneperone-not-running
+            :display oneperone-page}))

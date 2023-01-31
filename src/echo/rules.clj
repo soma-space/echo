@@ -20,9 +20,9 @@
 (defn fire
   []
   (-> (session)
-      (inspect/inspect)))
-      ;:fact->explanations
-      ;keys))
+      (inspect/inspect)
+      :fact->explanations
+      keys))
 
 
 (defn explain

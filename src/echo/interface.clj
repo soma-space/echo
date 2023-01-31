@@ -17,6 +17,7 @@
                           :resizable? false
                           :visible? true
                           :on-close :dispose)]
+    (reset! frame! frame)
     (core/listen frame :window-closed (fn [_] (reset! frame! nil)))
     frame))
 

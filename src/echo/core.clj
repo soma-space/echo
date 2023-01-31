@@ -18,9 +18,19 @@
 
 
 (comment
-  (-> (session [(config-fact)])
-      (query queries/show-oneperone-page)))
+  (let [session (session [(config-fact)])]
+    (distinct
+      (map first
+           (mapcat first (filter seq [(query session queries/show-oneperone-page)
+                                      (query session queries/show-oneperone-page)
+                                      (query session queries/show-welcome-page)]))))))
 
+
+    ;(map first (query session queries/show-oneperone-page)
+    ;           (query session queries/show-welcome-page))))
+
+; '({?blah {:fact :blah])
+; '()
 
 (comment
   (do (setup)

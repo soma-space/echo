@@ -7,8 +7,11 @@
 
 (defn progress-forward
   []
-  (let [session (rules/session [(rules/config-fact)])]
-    (query session queries/show-oneperone-page)))
+  (let [session (rules/session [(rules/config-fact)])
+        next-page (distinct
+                    (map first
+                         (mapcat first (filter seq [(query session queries/show-oneperone-page)
+                                                    (query session queries/show-welcome-page)]))))]))
 
 
 (defn next-action

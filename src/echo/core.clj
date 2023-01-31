@@ -1,5 +1,5 @@
 (ns echo.core
-  (:require [echo.rules :refer [fire session config-fact]]
+  (:require [echo.rules :refer [fire session]]
             [clara.rules :refer [query]]
             [echo.queries :as queries]
             [echo.interface :refer [setup]]
@@ -18,7 +18,7 @@
 
 
 (comment
-  (let [session (session [(config-fact)])]
+  (let [session (session)]
     (distinct
       (map first
            (mapcat first (filter seq [(query session queries/show-oneperone-page)
